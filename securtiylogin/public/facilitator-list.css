@@ -1,0 +1,60 @@
+#facilitator-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#facilitator-list li {
+    background-color: #f0f0f0; /* Light gray for even list items */
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd; /* Light divider lines */
+}
+
+#facilitator-list li:nth-child(odd) {
+    background-color: #e6e6e6; /* Slightly darker gray for odd list items */
+}
+
+#facilitator-list li:hover {
+    background-color: #89f898; /* Hover state for list items */
+}
+
+#facilitator-list li {
+    font-family: Arial, sans-serif;
+    color: #333; /* Dark text for readability */
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* Additional styles that may affect the list appearance */
+.content {
+    background-color: #ffffff; /* Assuming white background for the content area */
+}
+
+/* You can also style the scrollbar to match the design if needed */
+/* Style the scrollbar for Chrome, Edge, and Safari */
+.content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #89f898;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Style the scrollbar for Firefox */
+.content {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* Style the scrollbar for IE and Edge */
+.content {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}

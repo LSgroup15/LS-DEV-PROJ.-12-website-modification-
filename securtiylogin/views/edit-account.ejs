@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... -->
+</head>
+<body>
+    <% if (error) { %>
+        <script>alert('<%= error %>')</script>
+    <% } %>
+    <% if (user) { %>
+        <div id="edit-account-form">
+            <h2>Edit Account Details</h2>
+            <form action="/update-account" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" value="<%= name %>" required>
+            
+                <!-- You may not want to allow users to change their email, or handle it carefully -->
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password" value="<%= password %>" required>
+
+            
+                <!-- Add other fields as necessary -->
+            
+                <button type="submit">Update Account</button>
+            </form>
+            
+        </div>
+    <% } else { %>
+        <p>User data not available.</p>
+    <% } %>
+</body>
+
+<script>
+    function showEditAccountForm() {
+    // Hide all tab content
+    const tabs = document.querySelectorAll('.tabContent');
+    tabs.forEach(tab => {
+        tab.style.display = 'none';
+    });
+
+    // Remove 'active' class from all sidebar links
+    const links = document.querySelectorAll('.sidebar a');
+    links.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Show the edit account form
+    const editForm = document.getElementById('edit-account');
+    editForm.style.display = 'block';
+
+    // Optional: add 'active' class to the Edit Account button
+    this.classList.add('active');
+}
+
+// This function would be called when the page loads or when a user logs in
+// to ensure the correct tab is shown if there's an 'activeTab' indicated in the URL or session storage
+document.addEventListener('DOMContentLoaded', () => {
+    // Logic here to check if the active tab should be 'edit-account'
+    const urlParams = new URLSearchParams(window.location.search);
+    const activeTab = urlParams.get('activeTab');
+    if (activeTab === 'edit-account') {
+        showEditAccountForm();
+    }
+});
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/4.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="/register.css">
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerButton = document.getElementById('registerButton');
+            registerButton.addEventListener('click', function(event) {
+                var name = document.getElementById('registername').value.trim();
+                var email = document.getElementById('registeremail').value.trim();
+                var password = document.getElementById('registerPassword').value.trim();
+                if (name === '' || email === '' || password === '') {
+                    event.preventDefault(); // Stop form submission
+                    alert('Please fill out all fields before registering.');
+                } else {
+                    event.preventDefault(); // Prevent the form from submitting to show the alert in a demo
+                    alert('Registration successful! Redirecting...');
+                    // Here you might redirect the user or perform some other action
+                    // window.location.href = '/login'; // Redirect to login page, for example
+                }
+            });
+        });
+
+        window.onload = function() {
+        setTimeout(function() {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                notification.style.display = 'none';
+            }
+        }, 5000); // Change 5000 to however many milliseconds you want (5000 ms = 5 seconds)
+    };
+    
+    </script>
+</head>
+<body>
+
+<div id="register">
+    <h2>Register</h2>
+
+    <% if (messages.error_msg) { %>
+        <div id="notification" class="alert alert-danger"><%= messages.error_msg %></div>
+    <% } %>
+    <% if (messages.success_msg) { %>
+        <div id="notification" class="alert alert-success"><%= messages.success_msg %></div>
+    <% } %>
+    
+    
+    <form action="/register" method="POST">
+        <label for="registername">Full Name:</label>
+    <input type="text" id="registername" name="name" required>
+
+    <label for="registeremail">Email:</label>
+    <input type="email" id="registeremail" name="email" required>
+
+    <label for="registerPassword">Password:</label>
+    <input type="password" id="registerPassword" name="password" required minlength="8">
+
+    <button type="submit">Register</button>
+</form>
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+</div>
+
+</body>
+</html>

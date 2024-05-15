@@ -1,0 +1,158 @@
+/* Main layout styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.sidebar {
+    background-color: #1E4D2B; /* Dark green color */
+    color: white;
+    width: 200px;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Sidebar styling */
+.sidebar h1 {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #366B45; /* Lighter green for hover/active state */
+}
+
+/* Button styles */
+button, .styled-element {
+    background-color: #1E4D2B; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover, .styled-element:hover {
+    background-color: #45a049;
+}
+
+.logout-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    position: absolute; /* Absolute position */
+    bottom: 0; /* At the bottom of the sidebar */
+    left: 2; /* Align to the left */
+    width: 80%; /* Stretch across the entire width of the sidebar */
+    padding: 10px; /* Padding for aesthetics */
+    text-align: center; /* Center the text */
+    border: none; /* Remove borders if any */
+    border-radius: 10px; /* Reset border-radius if you want a flat bottom */
+}
+
+.logout-button:hover {
+    background-color: #ff746a;
+}
+
+/* Form and list styling */
+input[type=text], input[type=button], button {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Specific to facilitator list */
+
+
+/* Hide tab content by default and show the active tab */
+.tabContent {
+    display: none;
+}
+
+.tabContent.active {
+    display: block;
+}
+
+/* Extra styles for headers */
+h1 {
+    color: #ffffff; /* Dark green color */
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #000000; /* Dark green color */
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+/* Additional styles for forms and list header */
+.list-header {
+    margin-bottom: 15px;
+}
+
+/* Search input styling */
+.search-input {
+    width: calc(100% - 24px); /* Adjust width for padding */
+    margin-bottom: 20px;
+}
+
+/* Adjust small add button */
+.small-add-button {
+    padding: 8px 10px; /* Smaller padding for small buttons */
+}
+
+.close-form-button {
+    background-color: #f44336; /* Red color for a close or cancel button */
+    color: white;
+    padding: 10px 15px;
+    margin-left: 10px; /* Spacing between buttons */
+    border: none;
+    cursor: pointer;
+}
+
+#installButton {
+    display: none; /* Initially hidden, will be shown when the app can be installed */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around the text */
+    margin: 10px 0; /* Margin for some space around the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners for a modern look */
+    font-size: 16px; /* Slightly larger font size for better readability */
+    cursor: pointer; /* Change cursor to pointer when hovering over the button */
+    text-align: center; /* Center the text inside the button */
+    text-decoration: none; /* No underline on the text */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  #installButton:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+  }
+  
+  /* You might want to add styles for focus and active states as well for accessibility */
+  #installButton:focus,
+  #installButton:active {
+    outline: none; /* Removes the outline to keep the design clean */
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #4CAF50; /* Adds a nice shadow effect */
+  }
+  

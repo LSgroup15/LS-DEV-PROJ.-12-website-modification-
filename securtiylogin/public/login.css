@@ -1,0 +1,58 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2b3e36; /* Dark shade of navy green for the background */
+    color: #ffffff; /* White color for text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Form Styles */
+.form-container {
+    background-color: #3a4e47; /* Slightly lighter shade of navy green for the form background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: none; /* Hide by default */
+}
+
+#login, #register {
+    display: none; /* Both forms hidden by default */
+}
+
+.form-container h2 {
+    color: #e2f3f5; /* Soft, almost white color for headings */
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4a6458; /* Navy green button */
+    color: #ffffff; /* White text color for button */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5a7568; /* Lighter shade for hover effect */
+}

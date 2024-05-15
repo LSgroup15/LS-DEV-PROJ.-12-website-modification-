@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/4.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/facilitator-list.css">
+    <link rel="stylesheet" type="text/css" href="/student-list.css">
+    <link rel="stylesheet" type="text/css" href="/update-account.css">
+    <link rel="manifest" href="/manifest.json">
+    <script src="main.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>SSSMVMPS</title>
+</head>
+<body>
+
+<div class="sidebar">
+    <h1>SSSMVMPS</h1>
+    <div class="sidebar-links">
+        <!-- Other sidebar links here -->
+        <a href="#dashboard" onclick="changeTab('dashboard', event)">Dashboard</a>
+        <a href="#facilitator" onclick="changeTab('facilitator', event)">Facilitator</a>
+        <a href="#student" onclick="changeTab('student', event)">Student</a>
+        <a href="#visitor" onclick="changeTab('visitor', event)">Visitor</a>
+    </div>
+    <div class="sidebar-bottom">
+        <a href="#edit-account" onclick="changeTab('edit-account', event)">Edit Account</a>
+        <button id="installButton" style="display: none;">Install App</button>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button class="logout-button" type="submit">Logout</button>
+        </form>
+        
+    </div>
+</div>
+
+<div class="content">
+    <div id="dashboard" class="tabContent">
+        <h2>Dashboard</h2>
+        <% if (typeof name !== 'undefined') { %>
+            <h3>Welcome, <%= name %>!</h3>
+        <% } else { %>
+            <h3>Welcome, Guest!</h3>
+        <% } %>
+        <button id="qr-scan-btn" onclick="scanQRCode()">Scan QR Code</button>
+        <button id="gsm-module-btn" onclick="operateGSMModule()">Operate GSM Module</button>
+        <div id="gsm-module-output"></div>
+        <div id="qr-scanner-output"></div>
+    </div>
+
+    <div id="facilitator" class="tabContent" style="display:none">
+        <h2>Facilitators</h2>
+        <div>
+            <button class="styled-element" onclick="requestRFIDScan()">Add New Facilitator</button>
+
+        </div>
+        <div id="facilitator-form" style="display:none;">
+            <input type="text" id="facilitator-name" placeholder="Name">
+            <input type="text" id="facilitator-department" placeholder="Department">
+            <input type="text" id="facilitator-plate_number" placeholder="Plate Number">
+            <input type="text" id="facilitator-validation" placeholder="Validation">
+            <input type="text" id="facilitator-cp_number" placeholder="CP Number">
+            <button onclick="addFacilitator()">Add</button>
+            <button onclick="hideForm()" class="close-form-button">Close</button>
+</div>
+
+        <div>
+            <div class="list-header">
+                <input type="text" class="facilitator-search" placeholder="Search by name...">
+
+            </div>
+            <ul id="facilitator-list">
+                
+            </ul>
+        </div>
+    </div>
+
+    <div id="student" class="tabContent" style="display:none">
+        <h2>Students</h2>
+        <div>
+            <button class="add-new-member" onclick="showForm('student')">Add New Student</button>
+        </div>
+        <div id="student-form" style="display:none;">
+    <input type="text" id="student-name" placeholder="Name">
+    <input type="text" id="student-department" placeholder="Department">
+    <input type="text" id="student-year_section" placeholder="Year/Section">
+    <input type="text" id="student-plate_number" placeholder="Plate Number">
+    <input type="text" id="student-validation" placeholder="Validation">
+    <input type="text" id="student-cp_number" placeholder="CP Number">
+    <button class="small-add-button" onclick="addStudent()">Add</button>
+    <button onclick="hideForm()" class="close-form-button">Close</button>
+</div>
+        <div>
+            <div class="list-header">
+                <input type="text" class="facilitator-search" placeholder="Search by name...">
+            </div>
+            <ul id="student-list">
+            
+            
+            </ul>
+        </div>
+    </div>
+
+    <div id="visitor" class="tabContent" style="display:none">
+        <h2>Visitors</h2>
+        <div>
+            <button class="add-new-member" onclick="showForm('visitor')">Add New Visitor</button>
+        </div>
+        <div id="visitor-form" style="display:none;">
+            <input type="text" id="visitor-name" placeholder="Name">
+            <button onclick="addMember('visitor')">Add</button>
+        </div>
+        <div>
+            <div class="list-header">
+                <input type="text" id="visitor-search-input" class="search-input" placeholder="Search by name...">
+            </div>
+            <ul id="visitor-list">
+                <!-- Visitor list items here -->
+            </ul>
+        </div>
+    </div>
+    
+    <div id="edit-account" class="tabContent" style="display:none">
+        <div id="password-verification-form">
+            <h2>Verify Your Identity</h2>
+            <form id="verify-form" onsubmit="verifyPassword(event)">
+                <input type="password" id="verify-password" placeholder="Enter your password" required>
+                <button type="submit">Verify</button>
+            </form>
+        </div>
+        <div id="edit-account-form" style="display:none;">
+            <h2>Edit Account</h2>
+            <form id="edit-account-form">
+                <input type="text" id="account-name" placeholder="Your Name" required>
+                <input type="password" id="account-password" placeholder="New Password" required>
+                <button type="button" onclick="submitAccountChanges()">Save Changes</button>
+                <button type="button" onclick="cancelEdit()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="database.js"></script>
+<script src="edit-account.js"></script>
+<script src="jwa.js"></script>
+
+
+</body>
+</html>
